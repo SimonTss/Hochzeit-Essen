@@ -8,9 +8,9 @@ fetch("daten.csv")
 })
 .then(t=>{
  const lines=t.replace(/\r/g,"").split("\n").filter(x=>x);
- const headers=lines[0].split(",");
+ const headers=lines[0].split(";");
  gaeste=lines.slice(1).map(line=>{
-   const cols=line.split(",");
+   const cols=line.split(";");
    let o={};
    headers.forEach((h,i)=>o[h.trim()]=cols[i]?cols[i].trim():"");
    return o;
